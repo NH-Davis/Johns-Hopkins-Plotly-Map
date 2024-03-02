@@ -1,0 +1,27 @@
+---
+title: "New England region highlighting Massachusetts in pink"
+author: "NHartley"
+date: "2024-03-02"
+output: html_document
+---
+
+```{r setup, echo=FALSE, warning=FALSE, message=FALSE}
+
+#install.packages("usmap")
+library(usmap) #import the package
+library(ggplot2) #use ggplot2 to add layer for visualization
+
+# Define a data frame with states and a color assignment
+states_colors <- data.frame(state = c("CT", "ME", "MA", "NH", "VT", "RI"),
+                            color = c("skyblue", "skyblue", "pink", "skyblue", "skyblue", "skyblue"))
+
+# Plot the map
+plot_usmap(data = states_colors, values = "color", regions = "state") +
+  scale_fill_manual(values = c("skyblue" = "skyblue", "pink" = "pink"), guide = FALSE) +
+  labs(title = "New England Region") +
+  theme(panel.background = element_blank(), 
+        plot.background = element_blank())
+```
+
+this map can be viewed in Rpubs with the following link: https://rpubs.com/nhartley1986/1156126
+
